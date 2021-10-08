@@ -3,13 +3,13 @@ import jax
 from jax import random
 from functools import partial
 class nn():
-    def __init__(self, X, y, lr = 0.01, epochs = 10000, dims = 2, output_dims = 1):
+    def __init__(self, X, y, lr = 0.01, epochs = 10000, dims = 2, layers = 2):
         self.X = X
         self.y = y
         self.lr = lr
-        self.w1 = random.normal(random.PRNGKey(0), (X.shape[1], dims))
-        self.w2 = random.normal(random.PRNGKey(0), (dims, output_dims)) 
-        
+        for self.i in range(layers):
+            self.i = random.normal(random.PRNGKey(0), (X.shape[1], dims))
+            print(self.i)
         self.epochs = epochs    
     
     
@@ -44,7 +44,7 @@ class nn():
     def predict(self):
         return self.output
     
-
+    
 if __name__ == "__main__":
     X = np.array([[0,0,1],
                   [0,1,1],
